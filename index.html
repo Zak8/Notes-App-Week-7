@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  	<title>NotesApp</title>
+  	<meta name="description" content="Allowing you to quickly note things down on the go">
+    <link rel="stylesheet" href="css/note.css">
+    <script src="js/note.js"></script>
+    <script src="js/list.js"></script>
+    <script src="tests/feature/featureTest.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <div id="home">
+        <h1>Our notes app</h1>
+        <button id="show-new-note-button">Write a new note</button>
+      </div>
+    </header>
+
+
+    <section class="notepad">
+      <form id="submit-new-note-form" style="display: none;">
+        <textarea id="note-text" name="note-text" rows="10" cols="100" placeholder="Enter your note here"></textarea>
+        <button id="save-new-note">Save your note</button>
+      </form>
+    </section>
+
+	   <section class="list" id = "list">
+       <div class ="container" id="previews"></div>
+     </section>
+
+
+     <script src="js/control.js"></script>
+     <script src="tests/feature/featureTest.js"></script>
+     <script>
+     var newNoteButton = document.getElementById("show-new-note-button");
+     var saveNewNote = document.getElementById("save-new-note");
+     var noteText = document.getElementById("note-text");
+     var submitNewNoteForm = document.getElementById("submit-new-note-form");
+     var list = document.getElementById("previews");
+
+     var createNoteTest = function(){
+       newNoteButton.click();
+       noteText.innerText = "Thisisalongnoteabout very little consequence for note";
+       saveNewNote.click();
+       if (list.innerText == "Thisisalongnoteabout"){
+          console.log("PASS");
+       }
+       else {console.log("FAIL")
+       }
+      }
+
+      var displayNoteTest = function(){
+        var listNode = document.getElementById("0");
+        listNode.click();
+        var expandNode = document.getElementById("note-text0");
+       if (expandNode.innerText == "Thisisalongnoteabout very little consequence for note"){
+         console.log("PASS");
+       }
+       else {console.log("FAIL")
+       }
+     }
+    //  createNoteTest();
+    //  displayNoteTest();
+   </script>
+     <footer>
+       <div id="footer">
+         <p>Copyright &copy; 2017 Katerina Loschinina, Konrad Schlatte, Frankie Shaw and Kat Hicks.</p>
+       </div>
+     </footer>
+
+  </body>
+
+</html>
